@@ -24,7 +24,10 @@ public class Fireball : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        DamageEnemy(collision);
+        if (collision.gameObject.GetComponent<EnemyHealth>() != null)
+        {
+            DamageEnemy(collision);
+        }
         DestroyFireball();
     }
     private void DestroyFireball()
@@ -33,14 +36,6 @@ public class Fireball : MonoBehaviour
     }
     private void DamageEnemy(Collision collision)
     {
-        var enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
-        if (enemyHealth != null)
-        {
-            enemyHealth.value -= damage;
-            if(enemyHealth.value <= 0)
-            {
-                Destroy(enemyHealth.gameObject);
-            }
-        }
+        collision.gameObject.GetComponent<EnemyHealth>().DealDamage(damage);
     }
 }

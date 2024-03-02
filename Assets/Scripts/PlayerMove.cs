@@ -66,6 +66,9 @@ public class PlayerMove : MonoBehaviour
         readyToJump = true;
 
         startYScale = transform.localScale.y;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Update()

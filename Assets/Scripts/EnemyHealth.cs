@@ -5,14 +5,12 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public float value = 100;
-    void Start()
+    public void DealDamage(float damage)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        value -= damage;
+        if (value <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
