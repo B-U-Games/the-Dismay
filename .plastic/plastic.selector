@@ -1,0 +1,4 @@
+repository "the Dismay@BUGames@cloud"
+  path "/"
+    br "/main"
+    co "/main"
