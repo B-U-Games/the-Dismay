@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class EndScreen : MonoBehaviour
 {
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
     public void RestartGame()
     {
         SceneManager.LoadScene("MainMenu");

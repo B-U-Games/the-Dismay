@@ -4447,6 +4447,9 @@ MonoBehaviour:
   useLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  BloodLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &1562850195773094990
 MonoBehaviour:
   m_ObjectHideFlags: 0

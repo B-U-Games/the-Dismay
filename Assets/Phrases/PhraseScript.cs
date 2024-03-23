@@ -42,7 +42,7 @@ public class PhraseScript : MonoBehaviour
         {
             audioSource.PlayOneShot(BloodSeenPhrase);
             _bloodSeenPlayed = true;
-            StartCoroutine(SubtitlePrint("I need to find where all that blood comes from", 0.065f));
+            StartCoroutine(SubtitlePrint("I need to find where all that blood comes from", 0.045f));
             Invoke("SubtitleClear", 6f);
         }
     }
