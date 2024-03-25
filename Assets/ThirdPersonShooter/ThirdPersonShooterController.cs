@@ -27,6 +27,8 @@ public class ThirdPersonShooterController : MonoBehaviour
     public int _secretCount = 0;
     public float useDistance = 8;
     public LayerMask useLayerMask;
+    public GameObject Flashlight;
+    public AudioClip FlashlightSFX;
 
     private void Awake()
     {
@@ -106,6 +108,19 @@ public class ThirdPersonShooterController : MonoBehaviour
                     SceneManager.LoadScene("EndingMain");
                 }
             }
+        }
+    }
+    public void ToggleFlashlight()
+    {
+        if (starterAssetsInputs.flashlight)
+        {
+            Flashlight.SetActive(true);
+            audioSource.PlayOneShot(FlashlightSFX);
+        }
+        else
+        {
+            Flashlight.SetActive(false);
+            audioSource.PlayOneShot(FlashlightSFX);
         }
     }
 }

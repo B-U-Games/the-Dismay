@@ -15,6 +15,7 @@ namespace StarterAssets
 		public bool shoot;
 		public bool interact;
 		public bool pause;
+		public bool flashlight;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -63,6 +64,11 @@ namespace StarterAssets
 		{
 		    PauseInput(value.isPressed);
 		}
+
+		public void OnFlashlight(InputValue value)
+		{
+		    FlashlightInput(value.isPressed);
+		}
 #endif
 
 
@@ -107,6 +113,15 @@ namespace StarterAssets
 			{
 				pause = !pause;
 			}
+        }
+
+        public void FlashlightInput(bool newFlashlightState)
+        {
+            if (newFlashlightState)
+            {
+                flashlight = !flashlight;
+                GetComponent<ThirdPersonShooterController>().ToggleFlashlight();
+            }
         }
 
         private void OnApplicationFocus(bool hasFocus)

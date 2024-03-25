@@ -29,6 +29,9 @@ public class PhraseScript : MonoBehaviour
     {
         if (!_wayBackPlayed)
         {
+            StopCoroutine(SubtitlePrint("", 0f));
+            SubtitleClear();
+            audioSource.Stop();
             audioSource.PlayOneShot(WayBackPhrase);
             _wayBackPlayed = true;
             StartCoroutine(SubtitlePrint("It's too late to go back now", 0.065f));
@@ -40,6 +43,9 @@ public class PhraseScript : MonoBehaviour
     {
         if (!_bloodSeenPlayed)
         {
+            StopCoroutine(SubtitlePrint("", 0f));
+            SubtitleClear();
+            audioSource.Stop();
             audioSource.PlayOneShot(BloodSeenPhrase);
             _bloodSeenPlayed = true;
             StartCoroutine(SubtitlePrint("I need to find where all that blood comes from", 0.045f));
@@ -51,6 +57,9 @@ public class PhraseScript : MonoBehaviour
     {
         if (!_firstEncounterPlayed)
         {
+            StopCoroutine(SubtitlePrint("", 0f));
+            SubtitleClear();
+            audioSource.Stop();
             audioSource.PlayOneShot(FirstEncounterPhrase);
             _firstEncounterPlayed = true;
             StartCoroutine(SubtitlePrint("What was that?", 0.065f));
@@ -62,6 +71,9 @@ public class PhraseScript : MonoBehaviour
     {
         if (!_noKeyPlayed)
         {
+            StopCoroutine(SubtitlePrint("", 0f));
+            SubtitleClear();
+            audioSource.Stop();
             audioSource.PlayOneShot(NoKeyPhrase);
             _noKeyPlayed = true;
             StartCoroutine(SubtitlePrint("I need a key, it must be somewhere near this fabric", 0.065f));
@@ -73,6 +85,9 @@ public class PhraseScript : MonoBehaviour
     {
         if (!_secretPlayed)
         {
+            StopCoroutine(SubtitlePrint("", 0f));
+            SubtitleClear();
+            audioSource.Stop();
             audioSource.PlayOneShot(SecretPhrase);
             _secretPlayed = true;
             StartCoroutine(SubtitlePrint("Looks like Harrison did make it now", 0.065f));

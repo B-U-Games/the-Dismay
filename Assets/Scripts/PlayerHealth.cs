@@ -14,10 +14,11 @@ public class PlayerHealth : MonoBehaviour
     public GameObject Camera;
     private float _maxHealth;
     public TextMeshProUGUI DeathCause;
+    private bool _dead = false;
     public void DealDamage(float damage)
     {
         value -= damage;
-        if (value <= 0)
+        if (value <= 0 && !_dead)
         {
             Die();
         }
@@ -33,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die(string cause)
     {
+        _dead = true;
         GetComponent<Pause>().enabled = false;
         GameplayUI.SetActive(false);
         GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
@@ -41,11 +43,12 @@ public class PlayerHealth : MonoBehaviour
         Camera.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        StartCoroutine(CausePrint(cause, 0.015f));
+        StartCoroutine(CausePrint(cause, 0.025f));
     }
 
     private void Die()
     {
+        _dead = true;
         GetComponent<Pause>().enabled = false;
         GameplayUI.SetActive(false);
         GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
@@ -54,7 +57,7 @@ public class PlayerHealth : MonoBehaviour
         Camera.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        StartCoroutine(CausePrint("skill issue", 0.015f));
+        StartCoroutine(CausePrint("skill issue", 0.025f));
     }
 
     private IEnumerator CausePrint(string str, float delay)
